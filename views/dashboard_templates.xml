@@ -1,0 +1,32 @@
+<template id="dashboard_template" name="Owner Dashboard">
+    <t t-call="website.layout">
+        <div class="container">
+            <h2>Dashboard</h2>
+            <div class="dashboard">
+                <!-- Revenue Chart -->
+                <div class="card">
+                    <h3>Revenue Overview</h3>
+                    <canvas id="revenueChart" class="chart"></canvas>
+                </div>
+
+                <!-- Booking Overview -->
+                <div class="card">
+                    <h3>Booking Overview</h3>
+                    <canvas id="bookingChart" class="chart"></canvas>
+                </div>
+
+                <!-- Upcoming Bookings -->
+                <div class="card">
+                    <h3>Upcoming Bookings</h3>
+                    <ul>
+                        <t t-foreach="bookings" t-as="booking">
+                            <li>
+                                <strong><t t-esc="booking.date"/></strong> - <t t-esc="booking.sport.name"/> at <t t-esc="booking.venue.name"/>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

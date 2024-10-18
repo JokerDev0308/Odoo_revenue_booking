@@ -1,0 +1,35 @@
+<!-- views/portal_templates.xml -->
+<template id="portal_dashboard_template" name="User Portal Dashboard">
+    <t t-call="website.layout">
+        <div class="container">
+            <h2>Welcome, <t t-esc="user.name"/></h2>
+            <div class="row">
+                <!-- Bookings Section -->
+                <div class="col-md-6">
+                    <h3>Your Bookings</h3>
+                    <div class="list-group">
+                        <t t-foreach="user_bookings" t-as="booking">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <strong><t t-esc="booking.sport.name"/></strong> at <t t-esc="booking.venue.name"/> on <t t-esc="booking.booking_date"/>
+                                <span class="badge badge-info">Duration: <t t-esc="booking.duration"/> hours</span>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- Venues Section -->
+                <div class="col-md-6">
+                    <h3>Your Venues</h3>
+                    <div class="list-group">
+                        <t t-foreach="user_venues" t-as="venue">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <strong><t t-esc="venue.name"/></strong>
+                                <span class="badge badge-primary">Location: <t t-esc="venue.location"/></span>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

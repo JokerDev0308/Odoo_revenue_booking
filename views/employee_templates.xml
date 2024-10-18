@@ -1,0 +1,24 @@
+<!-- views/employee_templates.xml -->
+<template id="employee_list_template" name="Employee Management Dashboard">
+    <t t-call="website.layout">
+        <div class="container">
+            <h2>Manage Employees</h2>
+            <a class="btn btn-primary" href="/employee/new">Add New Employee</a>
+            <div class="employee-list">
+                <t t-foreach="employees" t-as="employee">
+                    <div class="employee-card">
+                        <p>Name: <t t-esc="employee.name"/></p>
+                        <p>Email: <t t-esc="employee.email"/></p>
+                        <p>Mobile: <t t-esc="employee.mobile"/></p>
+                        <t t-if="employee.active">
+                            <a href="#" t-att-href="'/employee/deactivate/%s' % employee.id" class="btn btn-danger">Deactivate</a>
+                        </t>
+                        <t t-else="">
+                            <a href="#" t-att-href="'/employee/activate/%s' % employee.id" class="btn btn-success">Activate</a>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>

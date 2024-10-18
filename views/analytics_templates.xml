@@ -1,0 +1,18 @@
+<!-- views/analytics_templates.xml -->
+<template id="analytics_dashboard_template" name="Analytics Dashboard">
+    <t t-call="website.layout">
+        <div class="container">
+            <h2>Venue Analytics</h2>
+            <div class="dashboard">
+                <t t-foreach="analytics" t-as="report">
+                    <div class="card">
+                        <h3>Venue: <t t-esc="report.venue_id.name"/></h3>
+                        <p>Total Revenue: ₹<t t-esc="report.total_revenue"/> </p>
+                        <p>Total Bookings: <t t-esc="report.total_bookings"/> </p>
+                        <p>Report Date: <t t-esc="report.report_date"/> </p>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>

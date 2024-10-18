@@ -1,0 +1,42 @@
+<template id="booking_form_template" name="Booking Form">
+    <t t-call="website.layout">
+        <div class="container">
+            <div class="booking-form">
+                <h2>Book Your Slot</h2>
+                <form method="POST" action="/booking/confirm">
+                    <div>
+                        <label for="venue">Venue</label>
+                        <select name="venue_id" required>
+                            <t t-foreach="venues" t-as="venue">
+                                <option t-att-value="venue.id">
+                                    <t t-esc="venue.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="date">Booking Date</label>
+                        <input type="date" name="booking_date" required/>
+                    </div>
+                    <div>
+                        <label for="sport">Sport</label>
+                        <select name="sport_id" required>
+                            <t t-foreach="sports" t-as="sport">
+                                <option t-att-value="sport.id">
+                                    <t t-esc="sport.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="duration">Duration (hours)</label>
+                        <input type="number" name="duration" min="1" required/>
+                    </div>
+                    <div>
+                        <button type="submit">Confirm Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </t>
+</template>

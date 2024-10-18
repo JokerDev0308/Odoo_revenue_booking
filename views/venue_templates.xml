@@ -1,0 +1,19 @@
+<template id="venue_templates" name="Venue List">
+    <t t-call="website.layout">
+        <div class="container">
+            <h2>Available Venues</h2>
+            <div class="venues-list">
+                <t t-foreach="venues" t-as="venue">
+                    <div class="venue-card">
+                        <img t-att-src="venue.image_url" alt="Venue Image"/>
+                        <div class="venue-details">
+                            <h3><t t-esc="venue.name"/></h3>
+                            <p><t t-esc="venue.location"/></p>
+                            <a t-att-href="'/venue/%s' % venue.id">View Details</a>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>
